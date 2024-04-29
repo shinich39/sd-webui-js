@@ -1,0 +1,16 @@
+{
+  "name": "sd-webui-js",
+  "version": "1.0.0",
+  "description": "Use stable diffusion webui API with js.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "javascript",
+    "stable-diffusion-webui"
+  ],
+  "author": "shinich39 <shinich39@gmail.com>",
+  "license": "MIT"
+}
