@@ -47,12 +47,9 @@ import WEBUI from './index.js';
         "prompt": "masterpiece, best quality, black background, donald trump,",
         "negative_prompt": "(worst quality, low quality:1.4),",
         "seed": -1,
-        "to_scale": false, // scale_by disabled
         "width": 1024,
         "height": 1024,
-        "resize_mode": 0,
         "cfg_scale": 10,
-        "denoising_strength": 0.1,
         "steps": 20,
         "sampler_name": "Euler a",
         "batch_count": 1,

@@ -319,9 +319,9 @@ const payload = {
     "denoising_strength": 0.1,
     "steps": 20,
     "sampler_name": "Euler a",
-    "batch count": 1,
+    "batch_count": 1, // or n_iter
     "batch_size": 1,
-    "clip_skip": 2,
+    "clip_skip": 2, // or override_settings.CLIP_stop_at_last_layers
     "do_not_save_samples": true,
     "do_not_save_grid": true,
     "script_name": null,

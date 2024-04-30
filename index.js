@@ -13,10 +13,19 @@ function normalizePayload(payload) {
   if (typeof payload !== "object") {
     return;
   }
-  // batch_count
+  // batch_count to n_iter
   if (payload["batch_count"] && !payload["n_iter"]) {
     payload["n_iter"] = payload["batch_count"];
     delete payload["batch_count"];
+  }
+
+  // clip_skip to override_settings.CLIP_stop_at_last_layers
+  if (payload["clip_skip"]) {
+    if (!payload["override_settings"]) {
+      payload["override_settings"] = {};
+    }
+    payload["override_settings"]["CLIP_stop_at_last_layers"] = payload["clip_skip"];
+    delete payload["clip_skip"];
   }
   return JSON.stringify(payload);
 }
