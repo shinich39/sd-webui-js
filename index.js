@@ -48,8 +48,6 @@ WEBUI.prototype.__get__ = async function(url) {
 }
 
 WEBUI.prototype.__post__ = async function(url, payload) {
-  payload = normalizePayload(payload);
-
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -90,12 +88,14 @@ WEBUI.prototype.setOptions = async function(payload) {
 }
 
 WEBUI.prototype.txt2img = async function(payload) {
+  payload = normalizePayload(payload);
   const url = this.host + ROUTES["txt2img"];
   const response = await this.__post__(url, payload);
   return response;
 }
 
 WEBUI.prototype.img2img = async function(base64, payload) {
+  payload = normalizePayload(payload);
   payload["init_images"] = Array.isArray(base64) ? base64 : [base64];
   const url = this.host + ROUTES["img2img"];
   const response = await this.__post__(url, payload);
@@ -103,6 +103,7 @@ WEBUI.prototype.img2img = async function(base64, payload) {
 }
 
 WEBUI.prototype.extra = async function(base64, payload) {
+  payload = normalizePayload(payload);
   payload["image"] = base64;
   const url = this.host + ROUTES["extra"];
   const response = await this.__post__(url, payload);
