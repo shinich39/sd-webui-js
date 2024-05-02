@@ -27,7 +27,8 @@ function normalizePayload(payload) {
     payload["override_settings"]["CLIP_stop_at_last_layers"] = payload["clip_skip"];
     delete payload["clip_skip"];
   }
-  return JSON.stringify(payload);
+
+  return payload;
 }
 
 class WEBUI {
@@ -53,7 +54,7 @@ WEBUI.prototype.__post__ = async function(url, payload) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: payload,
+    body: payload ? JSON.stringify(payload) : undefined,
   });
 
   return response.json();
@@ -110,4 +111,4 @@ WEBUI.prototype.extra = async function(base64, payload) {
   return response;
 }
 
-export default WEBUI
+export default WEBUI;
